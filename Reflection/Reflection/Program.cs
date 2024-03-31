@@ -41,6 +41,13 @@ internal class Program
         Console.WriteLine($"Json serializer {res}");
         Console.WriteLine($"json serializer time: {sw.Elapsed.Milliseconds}");
 
-        
+        sw.Restart();
+        sw.Start();
+        for (int i = 0; i < 100000; i++)
+        {
+            f = JsonConvert.DeserializeObject<F>(res);
+        }
+        sw.Stop();
+        Console.WriteLine($"json deserializer: {sw.Elapsed.Milliseconds}");
     }
 }
