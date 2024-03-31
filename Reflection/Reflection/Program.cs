@@ -17,7 +17,7 @@ internal class Program
             res = serializer.Serialize(f, ';');
         }
         sw.Stop();
-        Console.WriteLine($"csv serializer {sw.Elapsed}");
+        Console.WriteLine($"csv serializer {sw.Elapsed.Milliseconds}");
         sw.Restart();
         sw.Start();
         for (int i = 0; i < 100000; i++)
@@ -25,12 +25,12 @@ internal class Program
             var d = serializer.Deserialize<F>(res, ';');
         }
         sw.Stop();
-        Console.WriteLine($"deserialize {sw.Elapsed}");
+        Console.WriteLine($"deserialize {sw.Elapsed.Milliseconds}");
         sw.Restart();
         sw.Start();
         Console.WriteLine(res);
         sw.Stop();
-        Console.WriteLine($"console writing {sw.Elapsed}");
+        Console.WriteLine($"console writing {sw.Elapsed.Milliseconds}");
         sw.Restart();
         sw.Start();
         for(int i = 0; i < 100000; i++)
@@ -39,7 +39,7 @@ internal class Program
         }
         sw.Stop();
         Console.WriteLine($"Json serializer {res}");
-        Console.WriteLine($"json serializer time: {sw.Elapsed}");
+        Console.WriteLine($"json serializer time: {sw.Elapsed.Milliseconds}");
 
         
     }
